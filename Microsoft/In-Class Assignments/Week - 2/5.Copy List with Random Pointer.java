@@ -8,7 +8,6 @@ class Solution {
       map.put(temp, new Node(temp.val));
       temp = temp.next;
    }
-
    temp = head;
    Node dummy = new Node(0);
    Node prev = dummy;
@@ -20,7 +19,6 @@ class Solution {
       prev = prev.next;
       temp = temp.next;
    }
-
    return dummy.next;
-}
+   }
 }
