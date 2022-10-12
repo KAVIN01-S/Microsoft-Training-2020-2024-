@@ -1,7 +1,6 @@
 class Solution {
     int preindx=0;
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-       
         TreeNode ans=solve(preorder,inorder,0,inorder.length-1);
         return ans;
     }
@@ -23,7 +22,3 @@ class Solution {
         return -1;
     }
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
