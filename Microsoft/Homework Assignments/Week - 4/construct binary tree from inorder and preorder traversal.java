@@ -1,15 +1,29 @@
 class Solution {
-    public TreeNode sortedArrayToBST(int[] nums) {
-        return dfs(nums,0,nums.length-1);
+    int preindx=0;
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+       
+        TreeNode ans=solve(preorder,inorder,0,inorder.length-1);
+        return ans;
     }
-    public TreeNode dfs(int[] nums, int left, int right){
-        if(left>right){
+    public TreeNode solve(int[] preorder, int[] inorder,int s,int e){
+        if (s>e){
             return null;
         }
-        int mid=(left+right)/2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left=dfs(nums,left,mid-1);
-        root.right=dfs(nums,mid+1,right);
-        return root;
+        int ele=preorder[preindx++];
+       TreeNode temp=new TreeNode(ele);
+        int pos=find(inorder,ele,s,e);
+        temp.left=solve(preorder,inorder,s,pos-1);
+        temp.right=solve(preorder,inorder,pos+1,e);
+        return temp;
+    }
+    public int find(int inorder[],int ele,int s,int e){
+        for(int i=s; i<=e; i++){
+            if(ele==inorder[i])
+                return i;        }
+        return -1;
     }
 }
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
